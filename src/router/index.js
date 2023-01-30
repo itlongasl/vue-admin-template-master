@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '@/store'
 
 Vue.use(Router)
 
@@ -30,6 +31,13 @@ import Layout from '@/layout'
  * a base page that does not have permission requirements
  * all roles can be accessed
  */
+
+//路由的配置：为什么不同用户登录我们的项目，菜单（路由）都是一样的？
+//因为咱们的路由‘死的’，不管你是谁，你能看见的，操作的菜单都是一样的
+//需要把项目中的路由进行拆分
+
+//常量路由:就是不关用户是什么角色，都可以看见的路由
+//什么角色（超级管理员，普通员工）：登录、404、首页
 export const constantRoutes = [{
         path: '/login',
         component: () =>
@@ -56,14 +64,68 @@ export const constantRoutes = [{
             meta: { title: 'Dashboard', icon: 'dashboard' }
         }]
     },
+
+]
+
+//异步路由:不同的用户（角色），需要过滤筛选出的路由，称之为异步路由
+//有的用户可以看见测试管理、有的看不见
+export const asyncRoutes = [{
+        name: 'Acl',
+        path: '/acl',
+        component: Layout,
+        redirect: '/acl/user/list',
+        meta: {
+            title: '权限管理',
+            icon: 'el-icon-lock'
+        },
+        children: [{
+                name: 'User',
+                path: 'user/list',
+                component: () =>
+                    import ('@/views/acl/user/list'),
+                meta: {
+                    title: '用户管理',
+                },
+            },
+            {
+                name: 'Role',
+                path: 'role/list',
+                component: () =>
+                    import ('@/views/acl/role/list'),
+                meta: {
+                    title: '角色管理',
+                },
+            },
+            {
+                name: 'RoleAuth',
+                path: 'role/auth/:id',
+                component: () =>
+                    import ('@/views/acl/role/roleAuth'),
+                meta: {
+                    activeMenu: '/acl/role/list',
+                    title: '角色授权',
+                },
+                hidden: true,
+            },
+            {
+                name: 'Permission',
+                path: 'permission/list',
+                component: () =>
+                    import ('@/views/acl/permission/list'),
+                meta: {
+                    title: '菜单管理',
+                },
+            },
+        ]
+    },
     {
         path: '/product',
         component: Layout,
-        name: 'product',
+        name: 'Product',
         meta: { title: '商品管理', icon: 'el-icon-goods' },
         children: [{
                 path: 'tradeMark',
-                name: 'TradeMark',
+                name: 'Trademark',
                 component: () =>
                     import ('@/views/product/tradeMark'),
                 meta: { title: '品牌管理' }
@@ -91,8 +153,10 @@ export const constantRoutes = [{
             }
         ]
     },
+]
 
-    // 404 page must be placed at the end !!!
+// 任意路由：当路径出现错误的时候重定向404 
+export const anyRoutes = [ // 404 page must be placed at the end !!!
     { path: '*', redirect: '/404', hidden: true }
 ]
 
@@ -101,7 +165,7 @@ const createRouter = () => new Router({
     scrollBehavior: () => ({ y: 0 }),
     routes: constantRoutes
 })
-
+console.log(store);
 const router = createRouter()
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465

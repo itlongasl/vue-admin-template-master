@@ -10,16 +10,32 @@
             <div class="box">
               <span class="charts-span">
                 周同比 <span style="margin-left:5px">56.67%</span>
-                <svg t="1673851899337" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                  xmlns="http://www.w3.org/2000/svg" p-id="8234" width="10" height="10">
-                  <path d="M27.273 753.613l485.222-484.233 484.233 485.222z" fill="#d81e06" p-id="8235"></path>
+                <svg
+                  t="1673851899337"
+                  class="icon"
+                  viewBox="0 0 1024 1024"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  p-id="8234"
+                  width="10"
+                  height="10"
+                >
+                  <path d="M27.273 753.613l485.222-484.233 484.233 485.222z" fill="#d81e06" p-id="8235" />
                 </svg>
               </span>
               <span class="charts-span">
                 日同比 <span style="margin-left:5px">19.16%</span>
-                <svg t="1673852001708" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                  xmlns="http://www.w3.org/2000/svg" p-id="12029" width="10" height="10">
-                  <path d="M1024 255.996 511.971 767.909 0 255.996 1024 255.996z" fill="#1afa29" p-id="12030"></path>
+                <svg
+                  t="1673852001708"
+                  class="icon"
+                  viewBox="0 0 1024 1024"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  p-id="12029"
+                  width="10"
+                  height="10"
+                >
+                  <path d="M1024 255.996 511.971 767.909 0 255.996 1024 255.996z" fill="#1afa29" p-id="12030" />
                 </svg>
               </span>
             </div>
@@ -33,7 +49,7 @@
       <el-col :span="6">
         <Card title="访问量" count="88468">
           <template slot="charts">
-            <lineChart></lineChart>
+            <lineChart />
           </template>
           <template slot="footer">
             <span class="footer-span">日访问量 1234</span>
@@ -44,7 +60,7 @@
       <el-col :span="6">
         <Card title="支付笔数" count="88468">
           <template slot="charts">
-            <barChart></barChart>
+            <barChart />
           </template>
           <template slot="footer">
             <span class="footer-span">转换率 64%</span>
@@ -55,28 +71,44 @@
       <el-col :span="6">
         <Card title="运营活动效果" count="78%">
           <template slot="charts">
-            <progressChart></progressChart>
+            <progressChart />
           </template>
           <template slot="footer">
             <span class="footer-span">
               周同比 <span style="margin-left:5px">56.67%</span>
-              <svg t="1673851899337" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                xmlns="http://www.w3.org/2000/svg" p-id="8234" width="10" height="10">
-                <path d="M27.273 753.613l485.222-484.233 484.233 485.222z" fill="#d81e06" p-id="8235"></path>
+              <svg
+                t="1673851899337"
+                class="icon"
+                viewBox="0 0 1024 1024"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                p-id="8234"
+                width="10"
+                height="10"
+              >
+                <path d="M27.273 753.613l485.222-484.233 484.233 485.222z" fill="#d81e06" p-id="8235" />
               </svg>
             </span>
             <span class="footer-span">
               日同比 <span style="margin-left:5px">19.16%</span>
-              <svg t="1673852001708" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                xmlns="http://www.w3.org/2000/svg" p-id="12029" width="10" height="10">
-                <path d="M1024 255.996 511.971 767.909 0 255.996 1024 255.996z" fill="#1afa29" p-id="12030"></path>
+              <svg
+                t="1673852001708"
+                class="icon"
+                viewBox="0 0 1024 1024"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                p-id="12029"
+                width="10"
+                height="10"
+              >
+                <path d="M1024 255.996 511.971 767.909 0 255.996 1024 255.996z" fill="#1afa29" p-id="12030" />
               </svg>
             </span>
           </template>
         </Card>
       </el-col>
     </el-row>
-    <Sale></Sale>
+    <Sale />
 
   </div>
 </template>
